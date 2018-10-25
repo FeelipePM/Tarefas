@@ -1,9 +1,10 @@
 .card {
   box-sizing: border-box;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.09);
+  padding: 5px 5px 10px 5px;
   text-align: center;
-  width: 400px;
-  height: 460px;
+  width: 420px;
+  height: 460px auto;
   flex-grow: 1;
 }
 
