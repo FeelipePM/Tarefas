@@ -37,6 +37,14 @@ input {
     padding: 5px;
 }
 
+textarea {
+    width: 380px;
+    height: 130px;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+}
+
 button {
     display: block;
     background-color: var(--color-button);
