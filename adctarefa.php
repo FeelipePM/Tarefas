@@ -2,13 +2,14 @@
 <h2 class="titulo">Adicionar Tarefa</h2>
 <form name="adctarefa" method="POST" class="adctarefa" action="src/php/controles/adicionandotarefa.php">
     <label for="titulo"></label>
-    <input type="text" name="titulo" placeholder="Titulo..." required>
-    <br>
-    <label for="descricao"></label>
-    <input type="text" name="descricao" placeholder="Descrição..." required>
+    <input type="text" name="titulo" placeholder="Titulo..." size="50" required>
     <br>
     <label for="datalimite"></label>
     <input type="date" name="datalimite" required>
+    <label for="descricao"></label>
+    <br>    
+    <!--<input type="text" name="descricao" placeholder="Descrição..." required>-->
+    <textarea name="descricao" placeholder="Descrição..." required></textarea>
     <div id="listaTarefas" class="listaTarefas"></div>
     <!--<button type="button" name="adicionar" onclick="adcCheck()">Adicionar Item</button>  -->
     <div>

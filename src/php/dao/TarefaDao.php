@@ -11,11 +11,11 @@
  *
  * @author MP
  */
-
 //autera isso para testa na tua maquina
 $path = 'C:\xampp\htdocs\heydev\Tarefas';
 require_once 'FabricaConexao.php';
-require_once $path.'\src\php\modelos\Tarefa.php';
+require_once $path . '\src\php\modelos\Tarefa.php';
+
 class TarefaDao {
 
     private $conn = null;
@@ -60,6 +60,18 @@ class TarefaDao {
             array_push($listaTarefas, $tarefa);
         }
         return $listaTarefas;
+    }
+
+    function buscarTarefa(Tarefa $t) {
+        $stmt = $this->conn->query("SELECT * FROM tarefas where id=" . $t->getIdTarefa() . " and " . $t->getIdUsuario());
+
+        $linha = $stmt->fetch(PDO::FETCH_ASSOC);
+        $tarefa = new Tarefa($linha['titulo'], $linha['descricao'], $linha['dataLimite']);
+        $tarefa->setIdTarefa($linha['idTarefas']);
+        $tarefa->setDataCriacao($linha['dataCriacao']);
+        $tarefa->setIdUsuario($linha['idUsuario']);
+        $tarefa->setAtiva($linha['ativa']);
+        return $tarefa;
     }
 
 }
