@@ -15,14 +15,16 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="#">Tarefas</a>
+                        <a href="#"><img class="icones-nav" src="img/taskboard.png" alt="tarefas">Tarefas</a>
                     </li>
                     <li>
-                        <a href="#">Amigos</a>
+                        <a href="#"><img class="icones-nav" src="img/add-amigo.png" alt="amigos">Amigos</a>
+                    </li>
+                    <li>
+                        <a href="saindo.php"><img class="icones-nav" src="img/logout1.png" alt="logout"></a>
                     </li>
                 </ul>
             </nav>
-            <a href="saindo.php"><button name="sair" type="bottom">Sair</button></a>
         </header>
         <main>
             <!-- <h1 class="titulo-principal">Todo<span class="titulo-principal2">List</span></h1> -->
