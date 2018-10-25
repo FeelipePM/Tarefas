@@ -3,10 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/base.css">
-        <link rel="stylesheet" href="css/btn.css">
-        <link rel="stylesheet" href="css/estilo.css">
+        <link rel="stylesheet" href="src/css/normalize.css">
+        <link rel="stylesheet" href="src/css/base.css">
+        <link rel="stylesheet" href="src/css/btn.css">
+        <link rel="stylesheet" href="src/css/estilo.css">
         <title>Tarefas</title>
     </head>
     <body>

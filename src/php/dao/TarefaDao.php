@@ -11,8 +11,11 @@
  *
  * @author MP
  */
+
+//autera isso para testa na tua maquina
+$path = 'C:\xampp\htdocs\heydev\Tarefas';
 require_once 'FabricaConexao.php';
-require_once 'src/php/modelos/Tarefa.php';
+require_once $path.'\src\php\modelos\Tarefa.php';
 class TarefaDao {
 
     private $conn = null;
