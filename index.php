@@ -1,6 +1,6 @@
 <?php include_once 'top.php'; ?>
 <h2 class="titulo">Login</h2>
-<form class="btn-padrao" name="login" method="POST" action="src/php/logar.php">
+<form class="btn-padrao" name="login" method="POST" action="src/php/controles/logar.php">
     <label for="email"></label>
     <input type="email" name="email" placeholder="Email..." required>
     <label for="senha"></label>
