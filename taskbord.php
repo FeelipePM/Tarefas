@@ -2,17 +2,21 @@
 <?php include_once './src/php/dao/TarefaDao.php'; ?>
 <h2 class="titulo">Minhas Tarefas</h2>
 
-<a href="adctarefa.php"><button type="button" name="adcTarefa">Adicionar Tarefa</button></a>
+<a class="btn-padrao" href="adctarefa.php"><button type="button" name="adcTarefa">Adicionar Tarefa</button></a>
 <label for="filtro">Filtro</label>
 <input type="search" name="filtro" placeholder="Filtro..."/>
-<table>
+<table class="espacamento">
+  <!--<table class="btn-padrao">-->
     <thead>
-    <th>ID</th>
-    <th>Titulo</th>
-    <th>Descrição</th>
-    <th>Data Criação</th>
-    <th>Data Fim</th>
-    <th>Estado</th>
+      <tr class="titulo-tabela">
+        <th>ID</th>
+        <th>Titulo</th>
+        <th>Descrição</th>
+        <th>Data Criação</th>
+        <th>Data Fim</th>
+        <th>Estado</th>
+        <th colspan="2">Ações</th>
+    </tr>
 </thead>
 <tbody>
     <?php
@@ -35,6 +39,8 @@
                         echo 'Inativo';
                 ?>
             </td>
+           <td><img class="icones" src="img/editar.png" alt="editar"></td>
+            <td><img class="icones" src="img/iconlixeira.png" alt="lixeira"></td>
         </tr>
         <?php
     endforeach;

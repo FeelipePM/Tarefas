@@ -1,21 +1,21 @@
 <?php include_once 'top.php'; ?>
 <h2 class="titulo">Adicionar Tarefa</h2>
 <form name="adctarefa" method="POST" class="adctarefa" action="src/php/controles/adicionandotarefa.php">
-    <label for="titulo">Titulo</label>
+    <label for="titulo"></label>
     <input type="text" name="titulo" placeholder="Titulo..." required>
     <br>
-    <label for="descricao">Descrição</label>
+    <label for="descricao"></label>
     <input type="text" name="descricao" placeholder="Descrição..." required>
     <br>
-    <label for="datalimite">Data Limite</label>
+    <label for="datalimite"></label>
     <input type="date" name="datalimite" required>
     <div id="listaTarefas" class="listaTarefas"></div>
     <!--<button type="button" name="adicionar" onclick="adcCheck()">Adicionar Item</button>  -->
     <div>
-        <button type="submit" name="salvar">Salvar</button>
-        <button type="reset" name="resetar">Limpar</button>
+    <a class="btn-padrao espacamento"><button type="submit" name="salvar">Salvar</button></a>
+    <a class="btn-padrao"><button type="reset" name="resetar">Limpar</button></a>
     </div>
-    <a href="./tarefa.php"><button type="button" nome="cadastrar">Cancelar</button></a>
+    <a class="btn-padrao" href="./tarefa.php"><button type="button" nome="cadastrar">Cancelar</button></a>
 </form>
 <!--
 <script>
