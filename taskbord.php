@@ -2,22 +2,41 @@
 <?php include_once './src/php/dao/TarefaDao.php'; ?>
 <h2 class="titulo">Minhas Tarefas</h2>
 
-<a class="btn-padrao" href="adctarefa.php"><button type="button" name="adcTarefa">Adicionar Tarefa</button></a>
 <label for="filtro">Filtro</label>
 <input type="search" name="filtro" placeholder="Filtro..."/>
+<a class="btn-padrao" href="adctarefa.php"><button type="button" name="adcTarefa">Adicionar Tarefa</button></a>
 <table class="espacamento">
-  <!--<table class="btn-padrao">-->
-    <thead>
-      <tr class="titulo-tabela">
-        <th>ID</th>
-        <th>Titulo</th>
-        <th>Descrição</th>
-        <th>Data Criação</th>
-        <th>Data Fim</th>
-        <th>Estado</th>
-        <th colspan="2">Ações</th>
+    <table class="btn-padrao customizacao">
+    <tr class="titulo-tabela">
+      <th>ID</th>
+      <th>Titulo</th>
+      <th>Descrição</th>
+      <th>Data Criação</th>
+      <th>Data Fim</th>
+      <th>Estado</th>
+      <th colspan="2">Ações</th>
     </tr>
-</thead>
+    <tr class="tarefas-tabela">
+      <td>1</td>
+      <td>Marco</td>
+      <td>PHP</td>
+      <td>24/10/18</td>
+      <td>25/10/18</td>
+      <td>Em Aberto</td>
+      <td><img class="icones" src="img/editar.png" alt="editar"></td>
+      <td><img class="icones" src="img/iconlixeira.png" alt="lixeira"></td>
+    </tr>
+    <tr class="tarefas-tabela">
+      <td>2</td>
+      <td>Marco</td>
+      <td>PHP</td>
+      <td>24/10/18</td>
+      <td>25/10/18</td>
+      <td>Em Aberto</td>
+      <td><img class="icones" src="img/editar.png" alt="editar"></td>
+      <td><img class="icones" src="img/iconlixeira.png" alt="lixeira"></td>
+    </tr>     
+</table>
 <tbody>
     <?php
     $dao = new TarefaDao();
@@ -39,8 +58,6 @@
                         echo 'Inativo';
                 ?>
             </td>
-           <td><img class="icones" src="img/editar.png" alt="editar"></td>
-            <td><img class="icones" src="img/iconlixeira.png" alt="lixeira"></td>
         </tr>
         <?php
     endforeach;
