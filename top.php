@@ -15,13 +15,13 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="#"><img class="icones-nav" src="img/taskboard.png" alt="tarefas">Tarefas</a>
+                        <a href="#"><img class="icones-nav" src="src/img/taskboard.png" alt="tarefas">Tarefas</a>
                     </li>
                     <li>
-                        <a href="#"><img class="icones-nav" src="img/add-amigo.png" alt="amigos">Amigos</a>
+                        <a href="#"><img class="icones-nav" src="src/img/add-amigo.png" alt="amigos">Amigos</a>
                     </li>
                     <li>
-                        <a href="saindo.php"><img class="icones-nav" src="img/logout1.png" alt="logout"></a>
+                        <a href="saindo.php"><img class="icones-nav" src="src/img/logout1.png" alt="logout"></a>
                     </li>
                 </ul>
             </nav>
