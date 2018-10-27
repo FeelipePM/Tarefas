@@ -16,7 +16,7 @@
     <a class="btn-padrao espacamento"><button type="submit" name="salvar">Salvar</button></a>
     <a class="btn-padrao"><button type="reset" name="resetar">Limpar</button></a>
     </div>
-    <a class="btn-padrao" href="./tarefa.php"><button type="button" nome="cadastrar">Cancelar</button></a>
+    <a class="btn-padrao" href="./taskbord.php"><button type="button" nome="cadastrar">Cancelar</button></a>
 </form>
 <!--
 <script>

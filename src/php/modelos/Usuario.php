@@ -11,7 +11,7 @@ class Usuario {
     private $urlConfirmaEmail;
     private $ativo;
 
-    function __construct($nome, $sobrenome, $senha, $email, $ativo) {
+    function __construct($nome = "", $sobrenome = "", $senha = "", $email = "", $ativo = "") {
         $this->nome = $nome;
         $this->sobrenome = $sobrenome;
         $this->senha = $senha;

@@ -1,6 +1,5 @@
 <?php
 
-
 class Tarefa {
 
     private $idTarefa = "";
@@ -11,7 +10,7 @@ class Tarefa {
     private $idUsuario = "";
     private $ativa = "";
 
-    public function __construct($titulo, $descricao, $dataLimite) {
+    public function __construct($titulo = "", $descricao = "", $dataLimite = "") {
         date_default_timezone_set('America/Sao_Paulo');
         $this->titulo = $titulo;
         $this->descricao = $descricao;

@@ -15,6 +15,7 @@
 $path = 'C:\xampp\htdocs\heydev\Tarefas';
 require_once 'FabricaConexao.php';
 require_once $path . '\src\php\modelos\Tarefa.php';
+require_once $path . '\src\php\modelos\Usuario.php';
 
 class TarefaDao {
 
@@ -46,8 +47,8 @@ class TarefaDao {
         }
     }
 
-    function listarTarefas() {
-        $stmt = $this->conn->query("SELECT * FROM tarefas;");
+    function listarTarefas(Usuario $u) {
+        $stmt = $this->conn->query("SELECT * FROM tarefas where idUsuario=".$u->getIdUsuario());
         $listaTarefas = array();
 
         while ($linha = $stmt->fetch(PDO::FETCH_ASSOC)) {

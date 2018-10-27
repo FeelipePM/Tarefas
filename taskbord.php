@@ -19,8 +19,10 @@
     </thead>
     <tbody>
         <?php
+        $usuario = new Usuario();
+        $usuario->setIdUsuario(1);
         $dao = new TarefaDao();
-        $tarefas = $dao->listarTarefas();
+        $tarefas = $dao->listarTarefas($usuario);
         foreach ($tarefas as $tarefa):
             ?>
 
@@ -38,8 +40,8 @@
                         echo 'Inativo';
                     ?>
                 </td>
-                <td><a href="#" title="Editar"><img class="icones" src="src/img/editar.png" alt="editar"></a></td>
-                <td><a href="#" title="Deletar"><img class="icones" src="src/img/iconlixeira.png" alt="lixeira"></a></td>
+                <td><a href="editarTarefa.php?id=<?= $tarefa->getIdTarefa() ?>" title="Editar"><img class="icones" src="src/img/editar.png" alt="editar"></a></td>
+                <td><a href=".php?id=<?= $tarefa->getgetIdTarefa() ?>"title="Deletar"><img class="icones" src="src/img/iconlixeira.png" alt="lixeira"></a></td>
             </tr>
             <?php
         endforeach;
