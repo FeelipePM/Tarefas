@@ -45,14 +45,14 @@
                     if ($tarefa->getAtiva() == 1)
                         echo 'Ativo';
                     else
-                        echo 'Inativo';
+                        echo 'Concluido';
                     ?>
                 </td>
                 <?php
                 if ($tarefa->getAtiva() == 1)
-                    echo "<td><a href='editarTarefa.php?id=". $tarefa->getIdTarefa() . "' 'title='Editar'><img class='icones' src='src/img/editar.png' alt='editar'></a></td>";
+                    echo "<td><a href='editarTarefa.php?id=". $tarefa->getIdTarefa() . "' ' title='Editar'><img class='icones' src='src/img/editar.png' alt='editar'></a></td>";
                 else
-                    echo '<td><img class="icones" src="src/img/editar.png" alt="editar"></td>';
+                    echo '<td><img class="icones" src="src/img/editar.png" title="Concluido" alt="editar"></td>';
                 ?>
                 <?php ?>            
                 <td><a href="src/php/controles/deletarTarefa.php?id=<?= $tarefa->getIdTarefa() ?>" title="Deletar"><img class="icones" src="src/img/iconlixeira.png" alt="lixeira"></a></td>
