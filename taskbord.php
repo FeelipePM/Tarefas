@@ -23,13 +23,21 @@
         $usuario->setIdUsuario(1);
         $dao = new TarefaDao();
         $tarefas = $dao->listarTarefas($usuario);
+        if (count($tarefas) <= 0) {
+            echo '<tr><td colspan="7" style="color:red">Sem tarefas</td></tr>';
+        }
         foreach ($tarefas as $tarefa):
             ?>
-
-            <tr class="titulo-tabelas">
+            <tr class="titulo-tabelas" style="<?php
+            if ($tarefa->getAtiva() == 1) {
+                echo "color: #000";
+            } else {
+                echo "color: #777";
+            }
+            ?>">
                 <td class="tituloItem"><?= $tarefa->getIdTarefa() ?></td>
                 <td class="tituloItem"><?= $tarefa->getTitulo() ?></td>
-                <td class="descricao"><?= $tarefa->getDescricao() ?></td>
+                <td class="descricao"><?= substr($tarefa->getDescricao(), 0, 30) ?></td>
                 <td class="dataCriacao"><?= $tarefa->getDataCriacao() ?></td>
                 <td class="dataFim"><?= $tarefa->getDataLimite() ?></td>
                 <td class="tituloItem">
@@ -40,8 +48,14 @@
                         echo 'Inativo';
                     ?>
                 </td>
-                <td><a href="editarTarefa.php?id=<?= $tarefa->getIdTarefa() ?>" title="Editar"><img class="icones" src="src/img/editar.png" alt="editar"></a></td>
-                <td><a href=".php?id=<?= $tarefa->getgetIdTarefa() ?>"title="Deletar"><img class="icones" src="src/img/iconlixeira.png" alt="lixeira"></a></td>
+                <?php
+                if ($tarefa->getAtiva() == 1)
+                    echo "<td><a href='editarTarefa.php?id=". $tarefa->getIdTarefa() . "' 'title='Editar'><img class='icones' src='src/img/editar.png' alt='editar'></a></td>";
+                else
+                    echo '<td><img class="icones" src="src/img/editar.png" alt="editar"></td>';
+                ?>
+                <?php ?>            
+                <td><a href="src/php/controles/deletarTarefa.php?id=<?= $tarefa->getIdTarefa() ?>" title="Deletar"><img class="icones" src="src/img/iconlixeira.png" alt="lixeira"></a></td>
             </tr>
             <?php
         endforeach;

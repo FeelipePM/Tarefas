@@ -47,8 +47,49 @@ class TarefaDao {
         }
     }
 
+    function deletar($idTarefa, $idUsuario) {
+        try {
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $query = "DELETE FROM `tarefas` WHERE idTarefas=" . $idTarefa . " and idUsuario=" . $idUsuario;
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
+    }
+
+    function atualizar(Tarefa $tarefa) {
+        try {
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $query = "UPDATE `tarefas` SET `idTarefas`=:id,"
+                    . "`titulo`=:t,"
+                    . "`descricao`=:d,"
+                    . "`dataCriacao`=:dateC,"
+                    . "`dataLimite`=:dateL,"
+                    . "`idUsuario`=:idU,"
+                    . "`ativa`=:a "
+                    . "WHERE idTarefas=:id";
+
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->bindValue(':id', $tarefa->getIdTarefa());
+            $stmt->bindValue(':t', $tarefa->getTitulo());
+            $stmt->bindValue(':d', $tarefa->getDescricao());
+            $stmt->bindValue(':dateC', $tarefa->getDataCriacao());
+            $stmt->bindValue(':dateL', $tarefa->getDataLimite());
+            $stmt->bindValue(':idU', $tarefa->getIdUsuario());
+            $stmt->bindValue(':a', $tarefa->getAtiva());
+
+
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
+    }
+
     function listarTarefas(Usuario $u) {
-        $stmt = $this->conn->query("SELECT * FROM tarefas where idUsuario=".$u->getIdUsuario());
+        $stmt = $this->conn->query("SELECT * FROM tarefas where idUsuario=" . $u->getIdUsuario());
         $listaTarefas = array();
 
         while ($linha = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -63,15 +104,18 @@ class TarefaDao {
         return $listaTarefas;
     }
 
-    function buscarTarefa(Tarefa $t) {
-        $stmt = $this->conn->query("SELECT * FROM tarefas where id=" . $t->getIdTarefa() . " and " . $t->getIdUsuario());
+    function buscarTarefa($idTarefa, $idUsuario) {
+        $stmt = $this->conn->query("SELECT * FROM tarefas where idTarefas=" . $idTarefa . " and idUsuario=" . $idUsuario);
 
-        $linha = $stmt->fetch(PDO::FETCH_ASSOC);
-        $tarefa = new Tarefa($linha['titulo'], $linha['descricao'], $linha['dataLimite']);
-        $tarefa->setIdTarefa($linha['idTarefas']);
-        $tarefa->setDataCriacao($linha['dataCriacao']);
-        $tarefa->setIdUsuario($linha['idUsuario']);
-        $tarefa->setAtiva($linha['ativa']);
+        $stmt->execute();
+        $rs = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $tarefa = new Tarefa($rs['titulo'], $rs['descricao'], $rs['dataLimite']);
+        $tarefa->setIdTarefa($rs['idTarefas']);
+        $tarefa->setDataCriacao($rs['dataCriacao']);
+        $tarefa->setIdUsuario($rs['idUsuario']);
+        $tarefa->setAtiva($rs['ativa']);
+        $stmt = NULL;
         return $tarefa;
     }
 
